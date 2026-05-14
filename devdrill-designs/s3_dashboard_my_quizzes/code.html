@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevDrill - Home Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#007117",
+                      "secondary": "#ecffe3",
+                      "surface-tint": "#ecb2ff",
+                      "on-error": "#690005",
+                      "surface-container-lowest": "#130b16",
+                      "surface-container-high": "#302733",
+                      "tertiary-fixed-dim": "#ffb1c8",
+                      "primary-fixed-dim": "#ecb2ff",
+                      "primary-container": "#bd00ff",
+                      "on-tertiary": "#650033",
+                      "on-background": "#eeddee",
+                      "on-tertiary-fixed-variant": "#8e004a",
+                      "inverse-surface": "#eeddee",
+                      "surface-dim": "#19101c",
+                      "on-secondary-fixed": "#002203",
+                      "tertiary-container": "#e5007b",
+                      "on-surface-variant": "#d4c0d7",
+                      "outline": "#9d8ba0",
+                      "on-primary-container": "#ffffff",
+                      "secondary-container": "#13ff43",
+                      "outline-variant": "#514255",
+                      "surface-bright": "#403643",
+                      "inverse-primary": "#9900cf",
+                      "on-primary": "#520071",
+                      "on-primary-fixed-variant": "#74009f",
+                      "error-container": "#93000a",
+                      "tertiary": "#ffb1c8",
+                      "secondary-fixed": "#72ff70",
+                      "surface-variant": "#3c313e",
+                      "primary": "#ecb2ff",
+                      "on-error-container": "#ffdad6",
+                      "on-surface": "#eeddee",
+                      "primary-fixed": "#f8d8ff",
+                      "on-primary-fixed": "#320047",
+                      "surface": "#19101c",
+                      "background": "#19101c",
+                      "surface-container-low": "#211824",
+                      "tertiary-fixed": "#ffd9e2",
+                      "surface-container-highest": "#3c313e",
+                      "inverse-on-surface": "#372d3a",
+                      "on-secondary-fixed-variant": "#00530e",
+                      "on-secondary": "#003907",
+                      "on-tertiary-container": "#ffffff",
+                      "secondary-fixed-dim": "#00e639",
+                      "surface-container": "#261c28",
+                      "on-tertiary-fixed": "#3e001d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1200px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "unit": "4px",
+                      "gutter": "24px",
+                      "lg": "24px",
+                      "xl": "48px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Anybody"
+                      ],
+                      "body-md": [
+                              "JetBrains Mono"
+                      ],
+                      "display-hero": [
+                              "Anybody"
+                      ],
+                      "body-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "code-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Anybody"
+                      ],
+                      "stat-value": [
+                              "Space Mono"
+                      ],
+                      "label-caps": [
+                              "Space Mono"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-hero": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "stat-value": [
+                              "20px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .pixel-shadow { box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); }
+        .pixel-shadow-heavy { box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); }
+        .pixel-shadow-btn { box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); transition: transform 0.1s, box-shadow 0.1s; }
+        .pixel-shadow-btn:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px 0px rgba(0,0,0,1); }
+        .flicker-border { border: 2px solid transparent; animation: flicker 2s infinite alternate; }
+        @keyframes flicker {
+            0% { border-color: #13ff43; }
+            50% { border-color: transparent; }
+            100% { border-color: #13ff43; }
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, rgba(236, 178, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(236, 178, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24 md:pb-0 bg-grid-pattern">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface border-b-4 border-primary shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sticky top-0 z-40 hidden md:block">
+<div class="flex justify-between items-center w-full px-gutter py-md max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary italic tracking-tighter">
+                DevDrill
+            </div>
+<nav class="flex gap-lg items-center">
+<a class="text-secondary-fixed font-bold border-b-2 border-secondary-fixed font-label-caps text-label-caps pb-1 hover:text-primary hover:translate-y-[-2px] transition-transform" href="#">
+                    Dashboard
+                </a>
+<a class="text-on-surface-variant font-medium font-label-caps text-label-caps pb-1 hover:text-primary hover:translate-y-[-2px] transition-transform" href="#">
+                    History
+                </a>
+<a class="text-on-surface-variant font-medium font-label-caps text-label-caps pb-1 hover:text-primary hover:translate-y-[-2px] transition-transform" href="#">
+                    Leaderboard
+                </a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="bg-gradient-to-r from-tertiary-container to-primary-container text-on-primary-container font-label-caps text-label-caps px-md py-sm border-2 border-primary-fixed pixel-shadow-btn rounded-DEFAULT flex items-center gap-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                    New Quiz
+                </button>
+<img alt="Pixel Art User Avatar" class="w-10 h-10 rounded-full border-2 border-primary-fixed pixel-shadow object-cover" data-alt="A retro pixel art avatar of a cybernetic developer character with glowing neon glasses, set against a dark purple background. Designed in an 8-bit aesthetic suitable for a gamified tech dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB74BW2mqP_yT9XeC08zEcwwPcDs7B4eD1Hon62SeGgVzjxGam2V2N1mmLSKKHCyxoBFouWtGQrXbOCSv02trtj8xHg9cgz0WP0gaTgjviqY67lfrq3fVgZUlqJyc8mOCd2saW4iqmaP6JZmThQTaX98ojkomGKKZDWDgBEtewqSHYGW-c_FA3Hj0haFJlj5YYEBqkuz5p8hyLcY6sIwsiRc5Ahdpxsj0wQSjkrfkHVjc5Ml1k_47vOhOsmucSFfMaiReZEAeqel97N"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-container-max mx-auto px-md md:px-gutter py-xl">
+<!-- Dashboard Header / Terminal Stat -->
+<div class="bg-surface-container border border-primary-fixed rounded-lg p-md md:p-lg pixel-shadow-heavy mb-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-md relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container opacity-10 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
+<div>
+<p class="font-code-sm text-code-sm text-secondary-fixed mb-xs flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px]">terminal</span> &gt; echo $USER_STATS
+                </p>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-xs">Welcome back, Dev_01</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Your current streak is <span class="text-secondary font-bold">14 days</span>. Keep grinding!</p>
+</div>
+<div class="flex gap-md w-full md:w-auto">
+<div class="bg-surface-variant rounded p-sm border border-outline-variant flex-1 md:w-32 text-center">
+<div class="font-label-caps text-label-caps text-outline mb-1">XP</div>
+<div class="font-stat-value text-stat-value text-primary">14,250</div>
+</div>
+<div class="bg-surface-variant rounded p-sm border border-outline-variant flex-1 md:w-32 text-center flicker-border">
+<div class="font-label-caps text-label-caps text-outline mb-1">RANK</div>
+<div class="font-stat-value text-stat-value text-secondary-fixed">NEON_3</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- My Quizzes Grid -->
+<section class="lg:col-span-2">
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-headline-md text-headline-md text-primary-fixed border-b-4 border-primary-container inline-block pb-1">My Quizzes</h2>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-primary flex items-center gap-xs" href="#">
+                        View All <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md md:gap-lg">
+<!-- Quiz Card 1 -->
+<div class="bg-surface rounded-lg border border-primary-fixed pixel-shadow group hover:translate-y-[-2px] transition-transform cursor-pointer overflow-hidden flex flex-col">
+<div class="h-32 bg-surface-variant relative border-b border-primary-fixed">
+<img alt="Code Matrix" class="w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A macro shot of vibrant green computer code scrolling down a dark terminal screen, illuminated in a dark room. The aesthetic is heavily inspired by hacker culture and retro cyberpunk interfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzkMSosc12BkUHQuJ4GKSHDlbhpe2x90M_VhKk8h1JgLPN7CKfNELQRylhFhJKAypHqBIzdLwudRoPRmtm1XtJ9niHLLp20EWZkqgKy2qIVLutueFmLjzsezNgl6edThh9ahoZRra3-MQst4K2GRALo7w3vdWrpqRdxM9LF-egYapA2wpFRzhkGrxgtqUfwOAGR4l526b_gOWPLHkXIoESXylVhDESlbBZtVPLDQhASl1my08azjZja-nlBOvjA4Z1bASlhFEAqgoT"/>
+<div class="absolute top-sm right-sm bg-surface text-primary font-label-caps text-label-caps px-2 py-1 rounded text-[10px] border border-primary-fixed">
+                                Lvl 5
+                            </div>
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs group-hover:text-primary transition-colors">Algorithms &amp; Data Structures</h3>
+<p class="font-code-sm text-code-sm text-secondary-fixed flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 225 questions
+                                </p>
+</div>
+<div class="mt-md pt-sm border-t border-outline-variant flex justify-between items-center">
+<div class="w-full bg-surface-variant h-2 rounded-full mr-md overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 75%"></div>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">75%</span>
+</div>
+</div>
+</div>
+<!-- Quiz Card 2 -->
+<div class="bg-surface rounded-lg border border-primary-fixed pixel-shadow group hover:translate-y-[-2px] transition-transform cursor-pointer overflow-hidden flex flex-col flicker-border">
+<div class="h-32 bg-surface-variant relative border-b border-primary-fixed">
+<img alt="React Logo Neon" class="w-full h-full object-cover opacity-60 mix-blend-screen" data-alt="A glowing neon atom symbol resembling the React framework logo, rendered in bright pink and purple against a pitch-black background. The style is vaporwave and synthwave inspired." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyjVIxx0uTDqWdFPYK3My0tQnaw9q96LgRVtjwPYvHib9ABS8Y--Z3XGjenSAt2S-Pa8B09mG6mM-BX-AljRBEOAiklE_SGQhe9mIGU73av6UMNR2bfqpDZJQ0wrCteoPALn-DEus2Pt8e9BTZBHwLnkMoF5OeH3RiAjBDgZxDxPWLBsMbor7VAMLobs6uQz0T_XtCkiY7wrNVbdwBLgNAk8DZq3gSW4437OY04HGxzHUyEeNZmbgP1WHnJ1eBUFt2Ip6axzVOpQ5C"/>
+<div class="absolute top-sm right-sm bg-surface text-secondary-fixed font-label-caps text-label-caps px-2 py-1 rounded text-[10px] border border-secondary-fixed">
+                                Active
+                            </div>
+</div>
+<div class="p-md flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface mb-xs group-hover:text-primary transition-colors">Advanced React Patterns</h3>
+<p class="font-code-sm text-code-sm text-secondary-fixed flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 80 questions
+                                </p>
+</div>
+<div class="mt-md pt-sm border-t border-outline-variant flex justify-between items-center">
+<div class="w-full bg-surface-variant h-2 rounded-full mr-md overflow-hidden">
+<div class="bg-secondary-fixed h-full rounded-full" style="width: 30%"></div>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">30%</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Games History (Bento Grid Style) -->
+<section class="lg:col-span-1">
+<div class="flex justify-between items-end mb-md">
+<h2 class="font-headline-md text-headline-md text-tertiary border-b-4 border-tertiary inline-block pb-1">Recent Battles</h2>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- History Row 1 -->
+<div class="bg-surface border border-outline-variant p-sm rounded flex items-center gap-md hover:bg-surface-bright transition-colors cursor-default">
+<div class="w-10 h-10 rounded bg-surface-variant border border-outline flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-code-sm text-code-sm font-bold truncate">CSS Grid Masters</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant text-[10px] mt-1">vs. Team Alpha • Win</div>
+</div>
+<div class="font-stat-value text-stat-value text-primary">+150</div>
+</div>
+<!-- History Row 2 -->
+<div class="bg-surface border border-outline-variant p-sm rounded flex items-center gap-md hover:bg-surface-bright transition-colors cursor-default">
+<div class="w-10 h-10 rounded bg-surface-variant border border-outline flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">skull</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-code-sm text-code-sm font-bold truncate">Async JS Nightmare</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant text-[10px] mt-1">vs. BugHunters • Loss</div>
+</div>
+<div class="font-stat-value text-stat-value text-outline-variant">-20</div>
+</div>
+<!-- History Row 3 -->
+<div class="bg-surface border border-outline-variant p-sm rounded flex items-center gap-md hover:bg-surface-bright transition-colors cursor-default">
+<div class="w-10 h-10 rounded bg-surface-variant border border-outline flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">swords</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-code-sm text-code-sm font-bold truncate">SQL Joins Deathmatch</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant text-[10px] mt-1">vs. DB_Gods • Tie</div>
+</div>
+<div class="font-stat-value text-stat-value text-outline">+50</div>
+</div>
+</div>
+<!-- Promo Bento Box -->
+<div class="mt-md bg-surface-variant border-2 border-primary border-dashed rounded-lg p-md text-center">
+<span class="material-symbols-outlined text-primary text-[32px] mb-xs">rocket_launch</span>
+<h3 class="font-body-md text-body-md font-bold text-on-surface mb-xs">Next Tournament</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-sm">Starts in 24h:00m</p>
+<button class="w-full bg-surface text-primary font-label-caps text-label-caps py-2 border border-primary pixel-shadow hover:bg-primary hover:text-on-primary transition-colors">
+                        Join Lobby
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="bg-surface-container-high dark:bg-surface-container-high border-t-4 border-outline-variant shadow-[0px_-4px_0px_0px_rgba(0,0,0,1)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 md:hidden rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-1">Quizzes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-1">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

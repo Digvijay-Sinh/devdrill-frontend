@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevDrill - Gameplay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#007117",
+                      "secondary": "#ecffe3",
+                      "surface-tint": "#ecb2ff",
+                      "on-error": "#690005",
+                      "surface-container-lowest": "#130b16",
+                      "surface-container-high": "#302733",
+                      "tertiary-fixed-dim": "#ffb1c8",
+                      "primary-fixed-dim": "#ecb2ff",
+                      "primary-container": "#bd00ff",
+                      "on-tertiary": "#650033",
+                      "on-background": "#eeddee",
+                      "on-tertiary-fixed-variant": "#8e004a",
+                      "inverse-surface": "#eeddee",
+                      "surface-dim": "#19101c",
+                      "on-secondary-fixed": "#002203",
+                      "tertiary-container": "#e5007b",
+                      "on-surface-variant": "#d4c0d7",
+                      "outline": "#9d8ba0",
+                      "on-primary-container": "#ffffff",
+                      "secondary-container": "#13ff43",
+                      "outline-variant": "#514255",
+                      "surface-bright": "#403643",
+                      "inverse-primary": "#9900cf",
+                      "on-primary": "#520071",
+                      "on-primary-fixed-variant": "#74009f",
+                      "error-container": "#93000a",
+                      "tertiary": "#ffb1c8",
+                      "secondary-fixed": "#72ff70",
+                      "surface-variant": "#3c313e",
+                      "primary": "#ecb2ff",
+                      "on-error-container": "#ffdad6",
+                      "on-surface": "#eeddee",
+                      "primary-fixed": "#f8d8ff",
+                      "on-primary-fixed": "#320047",
+                      "surface": "#19101c",
+                      "background": "#19101c",
+                      "surface-container-low": "#211824",
+                      "tertiary-fixed": "#ffd9e2",
+                      "surface-container-highest": "#3c313e",
+                      "inverse-on-surface": "#372d3a",
+                      "on-secondary-fixed-variant": "#00530e",
+                      "on-secondary": "#003907",
+                      "on-tertiary-container": "#ffffff",
+                      "secondary-fixed-dim": "#00e639",
+                      "surface-container": "#261c28",
+                      "on-tertiary-fixed": "#3e001d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1200px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "md": "16px",
+                      "unit": "4px",
+                      "gutter": "24px",
+                      "lg": "24px",
+                      "xl": "48px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Anybody"
+                      ],
+                      "body-md": [
+                              "JetBrains Mono"
+                      ],
+                      "display-hero": [
+                              "Anybody"
+                      ],
+                      "body-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "code-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg": [
+                              "Anybody"
+                      ],
+                      "stat-value": [
+                              "Space Mono"
+                      ],
+                      "label-caps": [
+                              "Space Mono"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-hero": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "code-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "stat-value": [
+                              "20px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .pixel-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+        }
+        .pixel-shadow-lg {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+        .pixel-button {
+            transition: all 0.1s;
+        }
+        .pixel-button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+        }
+        .bg-pixel-forest {
+            background-color: #19101c;
+            background-image: 
+                radial-gradient(#bd00ff 1px, transparent 1px),
+                radial-gradient(#13ff43 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col bg-pixel-forest relative overflow-hidden">
+<!-- Top Navigation Hidden for Gameplay to prioritize focus, per Semantic Shell Mandate -->
+<!-- Main Gameplay Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center p-md md:p-lg max-w-container-max mx-auto w-full z-10 relative">
+<!-- Timer Bar -->
+<div class="w-full max-w-2xl mb-xl">
+<div class="flex justify-between items-center mb-sm font-label-caps text-label-caps text-secondary-fixed">
+<span>TIME REMAINING</span>
+<span>00:15</span>
+</div>
+<div class="w-full h-8 bg-surface-container-low border-2 border-outline-variant rounded pixel-shadow p-1 flex gap-1">
+<div class="h-full w-1/12 bg-secondary-container"></div>
+<div class="h-full w-1/12 bg-secondary-container"></div>
+<div class="h-full w-1/12 bg-secondary-container"></div>
+<div class="h-full w-1/12 bg-secondary-container"></div>
+<div class="h-full w-1/12 bg-secondary-container"></div>
+<div class="h-full w-1/12 bg-secondary-container"></div>
+<div class="h-full w-1/12 bg-secondary-container"></div>
+<div class="h-full w-1/12 bg-surface"></div>
+<div class="h-full w-1/12 bg-surface"></div>
+<div class="h-full w-1/12 bg-surface"></div>
+<div class="h-full w-1/12 bg-surface"></div>
+<div class="h-full w-1/12 bg-surface"></div>
+</div>
+</div>
+<!-- Question Card -->
+<div class="w-full max-w-3xl bg-surface border-4 border-primary rounded-xl pixel-shadow-lg p-xl mb-xl text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary-container to-tertiary-container"></div>
+<span class="font-label-caps text-label-caps text-tertiary mb-sm block">QUESTION 4 / 10</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">What's the fastest animal in the world?</h1>
+</div>
+<!-- Answers Grid -->
+<div class="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Answer A -->
+<button class="pixel-button bg-surface border-2 border-primary rounded-lg p-md text-left flex items-center gap-md hover:bg-surface-bright pixel-shadow group relative overflow-hidden">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary-fixed transition-colors pointer-events-none"></div>
+<div class="w-12 h-12 bg-surface-container-high border-2 border-outline rounded flex items-center justify-center font-headline-md text-headline-md text-primary group-hover:text-secondary-fixed group-hover:border-secondary-fixed shrink-0">
+                    A
+                </div>
+<span class="font-body-lg text-body-lg text-on-surface">Cheetah</span>
+</button>
+<!-- Answer B -->
+<button class="pixel-button bg-surface border-2 border-primary rounded-lg p-md text-left flex items-center gap-md hover:bg-surface-bright pixel-shadow group relative overflow-hidden">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary-fixed transition-colors pointer-events-none"></div>
+<div class="w-12 h-12 bg-surface-container-high border-2 border-outline rounded flex items-center justify-center font-headline-md text-headline-md text-primary group-hover:text-secondary-fixed group-hover:border-secondary-fixed shrink-0">
+                    B
+                </div>
+<span class="font-body-lg text-body-lg text-on-surface">Peregrine Falcon</span>
+</button>
+<!-- Answer C -->
+<button class="pixel-button bg-surface border-2 border-primary rounded-lg p-md text-left flex items-center gap-md hover:bg-surface-bright pixel-shadow group relative overflow-hidden">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary-fixed transition-colors pointer-events-none"></div>
+<div class="w-12 h-12 bg-surface-container-high border-2 border-outline rounded flex items-center justify-center font-headline-md text-headline-md text-primary group-hover:text-secondary-fixed group-hover:border-secondary-fixed shrink-0">
+                    C
+                </div>
+<span class="font-body-lg text-body-lg text-on-surface">Sailfish</span>
+</button>
+<!-- Answer D -->
+<button class="pixel-button bg-surface border-2 border-primary rounded-lg p-md text-left flex items-center gap-md hover:bg-surface-bright pixel-shadow group relative overflow-hidden">
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary-fixed transition-colors pointer-events-none"></div>
+<div class="w-12 h-12 bg-surface-container-high border-2 border-outline rounded flex items-center justify-center font-headline-md text-headline-md text-primary group-hover:text-secondary-fixed group-hover:border-secondary-fixed shrink-0">
+                    D
+                </div>
+<span class="font-body-lg text-body-lg text-on-surface">Pronghorn</span>
+</button>
+</div>
+</main>
+<!-- Avatar Overlay -->
+<div class="fixed bottom-lg right-lg z-50 flex items-end gap-sm pointer-events-none hidden md:flex">
+<div class="bg-surface-container-high border-2 border-outline-variant p-sm rounded-lg mb-md pixel-shadow">
+<span class="font-code-sm text-code-sm text-on-surface-variant">&gt; Hmm, this is tricky...</span>
+</div>
+<img alt="Pixel Art User Avatar" class="w-24 h-24 border-4 border-primary bg-surface pixel-shadow rounded bg-cover bg-center object-cover" data-alt="A detailed 8-bit style pixel art avatar of a retro game character. The character has spiky neon purple hair and is wearing high-tech sci-fi goggles reflecting a bright green digital grid. The style is reminiscent of 90s cyberpunk RPGs, characterized by blocky shading, vibrant neon accents against a dark background, and a distinctly brutalist, vaporwave-inspired aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqG0XWDxSlhjo-_oLzwTh627ya0Ryt07wlOXsk264fprS8HxNH_vSLH1yyCbiUso9W1o4BqtoI7J68NWdpDWgIPMckKU-Gq8odIMVuUfIlNIFl79XRo57aA9-Nhq_yjG3yeVfeSiX6SfLJkwMU8DcsaVtv0hRkp0szo1qDovUAzLzfpUmgXfduoXGdBUO3-EtIpa-Zji1vgUyepWeEXUmVnNDBdWdBCCId1K6a_k4mJdk-43mEp41P8SR8B3A8Vl2q-LrTpm1F0VvJ"/>
+</div>
+</body></html>

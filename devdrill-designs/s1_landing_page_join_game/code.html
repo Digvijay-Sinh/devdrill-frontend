@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevDrill - Join Game</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#007117",
+                    "secondary": "#ecffe3",
+                    "surface-tint": "#ecb2ff",
+                    "on-error": "#690005",
+                    "surface-container-lowest": "#130b16",
+                    "surface-container-high": "#302733",
+                    "tertiary-fixed-dim": "#ffb1c8",
+                    "primary-fixed-dim": "#ecb2ff",
+                    "primary-container": "#bd00ff",
+                    "on-tertiary": "#650033",
+                    "on-background": "#eeddee",
+                    "on-tertiary-fixed-variant": "#8e004a",
+                    "inverse-surface": "#eeddee",
+                    "surface-dim": "#19101c",
+                    "on-secondary-fixed": "#002203",
+                    "tertiary-container": "#e5007b",
+                    "on-surface-variant": "#d4c0d7",
+                    "outline": "#9d8ba0",
+                    "on-primary-container": "#ffffff",
+                    "secondary-container": "#13ff43",
+                    "outline-variant": "#514255",
+                    "surface-bright": "#403643",
+                    "inverse-primary": "#9900cf",
+                    "on-primary": "#520071",
+                    "on-primary-fixed-variant": "#74009f",
+                    "error-container": "#93000a",
+                    "tertiary": "#ffb1c8",
+                    "secondary-fixed": "#72ff70",
+                    "surface-variant": "#3c313e",
+                    "primary": "#ecb2ff",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#eeddee",
+                    "primary-fixed": "#f8d8ff",
+                    "on-primary-fixed": "#320047",
+                    "surface": "#19101c",
+                    "background": "#19101c",
+                    "surface-container-low": "#211824",
+                    "tertiary-fixed": "#ffd9e2",
+                    "surface-container-highest": "#3c313e",
+                    "inverse-on-surface": "#372d3a",
+                    "on-secondary-fixed-variant": "#00530e",
+                    "on-secondary": "#003907",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed-dim": "#00e639",
+                    "surface-container": "#261c28",
+                    "on-tertiary-fixed": "#3e001d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "xl": "48px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Anybody"
+                    ],
+                    "body-md": [
+                            "JetBrains Mono"
+                    ],
+                    "display-hero": [
+                            "Anybody"
+                    ],
+                    "body-lg": [
+                            "JetBrains Mono"
+                    ],
+                    "code-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-lg": [
+                            "Anybody"
+                    ],
+                    "stat-value": [
+                            "Space Mono"
+                    ],
+                    "label-caps": [
+                            "Space Mono"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-hero": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "code-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "stat-value": [
+                            "20px",
+                            {
+                                    "lineHeight": "1",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+        .pixel-bg {
+            background-color: #19101c;
+            background-image: radial-gradient(#bd00ff 1px, transparent 1px), radial-gradient(#bd00ff 1px, transparent 1px);
+            background-position: 0 0, 20px 20px;
+            background-size: 40px 40px;
+        }
+        .hard-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+        }
+        .btn-press:active {
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+            transform: translate(6px, 6px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pixel-bg items-center justify-center p-gutter">
+<main class="w-full max-w-4xl relative z-10">
+<div class="text-center mb-xl">
+<h1 class="font-display-hero text-display-hero text-primary italic tracking-tighter mb-sm drop-shadow-[4px_4px_0_rgba(0,0,0,1)]">DevDrill</h1>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim">Level up your coding skills. One boss battle at a time.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Left Card: Join Game -->
+<div class="bg-surface border border-primary-fixed-dim rounded-lg p-xl hard-shadow flex flex-col items-center text-center relative overflow-hidden group">
+<div class="absolute inset-0 border-2 border-secondary-fixed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<div class="w-24 h-24 mb-md">
+<img alt="Pixel Art Avatar" class="w-full h-full object-cover rounded-sm border-2 border-primary-fixed-dim" data-alt="A 8-bit style pixel art avatar of a retro game character with neon glowing accents, set against a dark terminal background. The visual style is retro-vaporwave meets brutalism, using vibrant neon greens and deep violet purples to create a gamified, hacker aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_olYWN-G8FNIaauRBKVo2WAANSyiHkhtLb4rD6hwxWgviYDoDOb7Z2B6lt1lj81Bd132GxKaUufENjkSnYiZvlPWQHr5vJ7jKpUzr_27Yd_3KKqLpKYNk7fOPwh3T0BO_g7BzyThpfgMhsa-Pgd3fCxDlMBxLE-m0IVuUeBlWjy2Nj9XuEfO0jUwR1DdcZ4a4Wv5hvoJ0-j1NHEWfe8eFfozza4p47Xh2OhAnfW7QnVsH2smf6rQMS5BuV7jum60Cd4FUliHXxO3J"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm">Join Game</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl">Enter the invite code from your host.</p>
+<div class="w-full flex flex-col gap-md">
+<div class="relative w-full">
+<span class="absolute left-md top-1/2 -translate-y-1/2 font-code-sm text-code-sm text-secondary-fixed">&gt;</span>
+<input class="w-full bg-surface-container border border-outline-variant rounded-md py-sm pl-xl pr-md font-code-sm text-code-sm text-on-surface focus:outline-none focus:border-secondary-fixed focus:ring-1 focus:ring-secondary-fixed uppercase placeholder:text-outline-variant" placeholder="ENTER_CODE" type="text"/>
+</div>
+<button class="w-full bg-gradient-to-r from-tertiary-container to-primary-container text-on-primary-container font-label-caps text-label-caps py-md border-2 border-primary-fixed-dim rounded-md hard-shadow btn-press transition-all">
+                        ENTER DUNGEON
+                    </button>
+</div>
+</div>
+<!-- Right Card: Create Game -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-xl hard-shadow flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-display-hero text-outline-variant mb-md" data-weight="fill">sports_esports</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm">Host a Drill</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl">Create lobbies, track leaderboards, and manage your custom quizzes.</p>
+<button class="w-full bg-surface-bright text-on-surface border-2 border-outline-variant font-label-caps text-label-caps py-md rounded-md hard-shadow hover:border-primary-fixed-dim hover:text-primary-fixed-dim btn-press transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined" data-weight="fill">login</span>
+                    HOST SIGN IN
+                </button>
+</div>
+</div>
+</main>
+</body></html>

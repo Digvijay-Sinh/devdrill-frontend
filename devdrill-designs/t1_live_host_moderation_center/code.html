@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevDrill - Live Host Moderation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+        }
+        /* Hard Block Shadows for Retro Feel */
+        .block-shadow-sm {
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+        }
+        .block-shadow-md {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+        .block-shadow-primary {
+            box-shadow: 6px 6px 0px 0px #bd00ff;
+        }
+        .block-shadow-secondary {
+            box-shadow: 4px 4px 0px 0px #13ff43;
+        }
+        .retro-border {
+            border: 2px solid #514255;
+        }
+        .retro-border-active {
+            border: 2px solid #13ff43;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#13ff43",
+                    "on-tertiary-fixed-variant": "#8e004a",
+                    "on-secondary": "#003907",
+                    "inverse-primary": "#9900cf",
+                    "tertiary-fixed-dim": "#ffb1c8",
+                    "surface-container-high": "#302733",
+                    "primary-container": "#bd00ff",
+                    "error": "#ffb4ab",
+                    "surface": "#19101c",
+                    "surface-tint": "#ecb2ff",
+                    "surface-container-highest": "#3c313e",
+                    "primary": "#ecb2ff",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#320047",
+                    "on-background": "#eeddee",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#00530e",
+                    "inverse-surface": "#eeddee",
+                    "primary-fixed": "#f8d8ff",
+                    "surface-container-low": "#211824",
+                    "surface-container-lowest": "#130b16",
+                    "surface-container": "#261c28",
+                    "surface-bright": "#403643",
+                    "outline": "#9d8ba0",
+                    "on-primary-fixed-variant": "#74009f",
+                    "on-tertiary": "#650033",
+                    "tertiary-fixed": "#ffd9e2",
+                    "secondary": "#ecffe3",
+                    "on-primary-container": "#ffffff",
+                    "surface-variant": "#3c313e",
+                    "surface-dim": "#19101c",
+                    "on-tertiary-fixed": "#3e001d",
+                    "inverse-on-surface": "#372d3a",
+                    "on-tertiary-container": "#ffffff",
+                    "tertiary": "#ffb1c8",
+                    "outline-variant": "#514255",
+                    "on-surface-variant": "#d4c0d7",
+                    "secondary-fixed": "#72ff70",
+                    "on-primary": "#520071",
+                    "secondary-fixed-dim": "#00e639",
+                    "on-secondary-fixed": "#002203",
+                    "tertiary-container": "#e5007b",
+                    "on-secondary-container": "#007117",
+                    "error-container": "#93000a",
+                    "background": "#19101c",
+                    "primary-fixed-dim": "#ecb2ff",
+                    "on-surface": "#eeddee"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "xl": "48px",
+                    "sm": "8px",
+                    "container-max": "1200px",
+                    "unit": "4px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Anybody"
+                    ],
+                    "headline-lg": [
+                            "Anybody"
+                    ],
+                    "body-md": [
+                            "JetBrains Mono"
+                    ],
+                    "body-lg": [
+                            "JetBrains Mono"
+                    ],
+                    "stat-value": [
+                            "Space Mono"
+                    ],
+                    "label-caps": [
+                            "Space Mono"
+                    ],
+                    "display-hero": [
+                            "Anybody"
+                    ],
+                    "code-sm": [
+                            "JetBrains Mono"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "stat-value": [
+                            "20px",
+                            {
+                                    "lineHeight": "1",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-hero": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "code-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen overflow-hidden flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary font-headline-md text-headline-md w-full top-0 sticky z-50 border-b-4 border-surface-container-highest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center px-lg py-md w-full max-w-container-max mx-auto shrink-0">
+<div class="flex items-center gap-md">
+<span class="font-display-hero text-headline-lg text-primary-container dark:text-primary-container uppercase italic">DevDrill</span>
+<!-- Live Status Badge -->
+<div class="hidden md:flex items-center gap-sm bg-error-container border-2 border-error px-md py-sm rounded-DEFAULT block-shadow-sm ml-lg">
+<span class="w-3 h-3 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-error tracking-widest uppercase">LIVE SESSION</span>
+</div>
+<!-- Room ID -->
+<div class="hidden md:flex items-center gap-sm bg-surface-container-high border-2 border-outline-variant px-md py-sm rounded-DEFAULT block-shadow-sm ml-sm">
+<span class="material-symbols-outlined text-outline text-[16px]">vpn_key</span>
+<span class="font-stat-value text-stat-value text-on-surface-variant text-[16px]">ID: 8F9-A2X</span>
+</div>
+</div>
+<!-- Top Nav Links (Hidden on mobile) -->
+<nav class="hidden md:flex gap-lg h-full items-center">
+<a class="text-on-surface-variant font-medium hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" href="#">Configs</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" href="#">Questions</a>
+<a class="text-secondary-fixed-dim font-bold border-b-2 border-secondary-fixed-dim hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" href="#">Huddle</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" href="#">Stats</a>
+</nav>
+<div class="flex items-center gap-md">
+<!-- Trailing Icons -->
+<button class="text-on-surface-variant hover:text-primary transition-colors p-sm bg-surface-container-high border-2 border-outline-variant rounded-DEFAULT block-shadow-sm active:translate-y-1 active:translate-x-1 active:shadow-none">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-sm bg-surface-container-high border-2 border-outline-variant rounded-DEFAULT block-shadow-sm active:translate-y-1 active:translate-x-1 active:shadow-none">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-sm bg-surface-container-high border-2 border-outline-variant rounded-DEFAULT block-shadow-sm active:translate-y-1 active:translate-x-1 active:shadow-none">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex bg-surface-container-low dark:bg-surface-container-low text-tertiary dark:text-tertiary font-body-md text-body-md h-full w-64 border-r-4 border-surface-container-highest shadow-[8px_0px_0px_0px_rgba(0,0,0,0.5)] flex flex-col p-md space-y-md shrink-0 overflow-y-auto">
+<!-- Host Profile Header -->
+<div class="flex items-center gap-md p-md bg-surface-container border-2 border-outline-variant rounded-DEFAULT block-shadow-sm mb-lg">
+<div class="w-12 h-12 rounded-DEFAULT bg-surface border-2 border-tertiary overflow-hidden">
+<img alt="Host Pixel Sprite" class="w-full h-full object-cover grayscale brightness-150 contrast-150" data-alt="A detailed 8-bit style pixel art portrait of a fantasy archmage character in a dark vaporwave setting. The character wears a neon purple robe and glowing green glasses. The background is a solid deep violet to match the UI theme. The lighting suggests a glowing CRT monitor effect." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhDsZrnhHW3AMfcAqnK2zNW6ckP8rcYEyDSA7rP7aB2NHzWbA-t029Sozui6N50NhMgUocRaR07iBlx9emu9Tg1P83wQDQyerM6DHV8M5jvUuYGparaoSF7bjYQzYyy5rvu2oeazN7BqT6zhQF6vbCXdLBsWgG1_l1mrcAwL3onSTnASImFUQEsHZn2mGZGEtqva9SrfCKrDvcmFUAOXTqP9Zusj7B6vCE2Ou0pp8F764G0A5ywnX2jnTcGevnpSbyZTMnb3PMXfxP"/>
+</div>
+<div>
+<h3 class="font-headline-md text-primary text-[16px]">ROOT_USER</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Level 99 Archmage</p>
+</div>
+</div>
+<!-- Primary CTA -->
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md text-[18px] py-md px-lg border-2 border-primary rounded-DEFAULT block-shadow-primary hover:bg-tertiary-container hover:text-on-tertiary-container hover:-translate-y-1 hover:-translate-x-1 transition-all active:translate-x-1 active:translate-y-1 active:shadow-none mb-lg flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">play_arrow</span>
+                START_DRILL
+            </button>
+<!-- Navigation Links -->
+<nav class="flex-1 space-y-sm">
+<a class="flex items-center gap-md p-md rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">tune</span>
+<span>Quiz Config</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Library</span>
+</a>
+<!-- Active Nav Item -->
+<a class="flex items-center gap-md p-md rounded-DEFAULT bg-secondary-container text-on-secondary-container border-2 border-on-secondary-fixed-variant shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-bold">Live Session</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span>Host Settings</span>
+</a>
+</nav>
+<!-- Footer Links -->
+<div class="mt-auto pt-lg border-t-2 border-surface-container-highest space-y-sm">
+<a class="flex items-center gap-md p-md rounded-DEFAULT text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Docs</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-DEFAULT text-error hover:bg-error-container hover:text-on-error-container hover:translate-x-1 transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-lg md:p-xl overflow-y-auto bg-background">
+<div class="max-w-container-max mx-auto h-full flex flex-col gap-lg">
+<!-- Top Status Bar (Canvas Level) -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md bg-surface-container border-2 border-outline-variant p-md rounded-lg block-shadow-sm">
+<div class="flex items-center gap-lg">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline">CURRENT ROUND</span>
+<span class="font-stat-value text-stat-value text-primary-fixed text-2xl">4 / 10</span>
+</div>
+<div class="w-px h-12 bg-surface-container-highest"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline">CONNECTED PLAYERS</span>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim">person</span>
+<span class="font-stat-value text-stat-value text-secondary-fixed-dim text-2xl">12</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-md w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-sm bg-error border-2 border-on-error-container text-on-error-container py-sm px-md rounded-DEFAULT block-shadow-sm hover:-translate-y-1 hover:bg-error-container transition-all active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined text-[18px]">mic_off</span>
+<span class="font-label-caps text-label-caps">MUTE ALL</span>
+</button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-sm bg-surface-bright border-2 border-outline text-on-surface py-sm px-md rounded-DEFAULT block-shadow-sm hover:-translate-y-1 hover:bg-surface-variant transition-all active:translate-y-1 active:shadow-none">
+<span class="material-symbols-outlined text-[18px]">skip_next</span>
+<span class="font-label-caps text-label-caps">FORCE SKIP</span>
+</button>
+</div>
+</div>
+<!-- Three Column Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg flex-1 min-h-0">
+<!-- Left Col: Live Gameplay Preview -->
+<div class="lg:col-span-5 flex flex-col gap-md">
+<h2 class="font-headline-md text-primary text-xl flex items-center gap-sm">
+<span class="material-symbols-outlined">visibility</span>
+                            PLAYER VIEW_
+                        </h2>
+<div class="flex-1 bg-surface-container border-2 border-primary-container rounded-lg block-shadow-sm overflow-hidden flex flex-col relative">
+<!-- Simulated Timer Bar -->
+<div class="h-2 w-full bg-surface-container-highest">
+<div class="h-full bg-secondary-container w-[60%]"></div>
+</div>
+<div class="p-lg flex flex-col flex-1 gap-lg items-center text-center justify-center relative z-10 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80')] bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-surface/90" data-alt="A highly stylized dark retro-vaporwave background texture featuring a glowing purple and green isometric grid fading into a deep black void. The style is reminiscent of 80s arcade cabinets and modern cyberpunk aesthetics, providing a high-contrast backdrop for bright neon text.">
+<div class="relative z-20 space-y-md">
+<span class="font-label-caps text-secondary-fixed-dim bg-secondary-fixed-dim/10 px-sm py-xs rounded border border-secondary-fixed-dim">Q4: JAVASCRIPT</span>
+<p class="font-body-lg text-on-surface text-xl">What is the output of `typeof null` in modern JavaScript?</p>
+<div class="w-full space-y-sm mt-lg">
+<div class="bg-surface-container-highest border border-outline-variant p-md rounded text-left font-code-sm text-on-surface-variant opacity-50">A) "null"</div>
+<div class="bg-primary-container/20 border-2 border-primary-container p-md rounded text-left font-code-sm text-primary shadow-[0_0_10px_rgba(189,0,255,0.3)]">B) "object"</div>
+<div class="bg-surface-container-highest border border-outline-variant p-md rounded text-left font-code-sm text-on-surface-variant opacity-50">C) "undefined"</div>
+<div class="bg-surface-container-highest border border-outline-variant p-md rounded text-left font-code-sm text-on-surface-variant opacity-50">D) "error"</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Big Honking Action Button -->
+<button class="w-full bg-primary-container text-on-primary-container font-display-hero text-[24px] py-lg px-xl border-4 border-primary rounded-lg block-shadow-md hover:bg-tertiary-container hover:text-on-tertiary-container hover:-translate-y-2 hover:-translate-x-2 transition-all active:translate-x-2 active:translate-y-2 active:shadow-none flex items-center justify-center gap-md mt-sm group">
+<span class="material-symbols-outlined text-[32px] group-hover:animate-spin">bolt</span>
+                            NEXT_QUESTION
+                        </button>
+</div>
+<!-- Middle Col: Player Roster -->
+<div class="lg:col-span-4 flex flex-col gap-md">
+<h2 class="font-headline-md text-primary text-xl flex items-center gap-sm">
+<span class="material-symbols-outlined">group</span>
+                            ROSTER_
+                        </h2>
+<div class="flex-1 bg-surface-container-low border-2 border-outline-variant rounded-lg block-shadow-sm overflow-y-auto p-sm space-y-xs">
+<!-- Player Item (Answered) -->
+<div class="flex items-center justify-between p-sm bg-surface border border-outline-variant rounded-DEFAULT hover:border-primary-container transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest border border-secondary-container overflow-hidden relative">
+<div class="absolute inset-0 bg-secondary-container/20"></div>
+<img alt="Player 1" class="w-full h-full object-cover grayscale mix-blend-luminosity" data-alt="A small 8-bit style pixel art portrait of a smiling developer with glasses. The color palette is restricted to shades of green and dark purple, fitting a retro terminal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9ZEJmTmrlKp-AVhBWPrQuhqE8sSIBlhuQ25vaMuVBOd7zWK1jntoe3VrajqFvQBkBzPB4h0XAw5G_e60ZzJCt967hqqAt2LE0zHJxmfveK5v-5tqBwifUf8U1FhBqGZoYP4eVFmKsCu7wVJT6M1yr06JRuXSddoCTjSJNHE6iQKcnubiWF03l6efo3ZAiIhlTQmBMdxq58H1H332jIMvovBECevsCg4hA1ODjoF05fF9qSFMTIb828vJwNLOFf1SO5-pczCNGDZIb"/>
+</div>
+<div class="flex flex-col">
+<span class="font-code-sm text-on-surface font-bold">DevSlayer99</span>
+<span class="font-label-caps text-secondary-fixed-dim text-[10px]">SUBMITTED [2.4s]</span>
+</div>
+</div>
+<button class="p-xs text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+</div>
+<!-- Player Item (Thinking) -->
+<div class="flex items-center justify-between p-sm bg-surface border border-outline-variant rounded-DEFAULT hover:border-primary-container transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest border border-tertiary-container overflow-hidden">
+<img alt="Player 2" class="w-full h-full object-cover grayscale mix-blend-luminosity" data-alt="A small 8-bit style pixel art portrait of a focused individual wearing a headset. The style is blocky and high contrast, using a vaporwave palette of dark background and neon pink highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-WbBSTJUnk1pLNGAd9jRc19CjTtTtyeBSURhZinR9jlJ59A-c68G7IKAkz8w2Jy-qiwLA74y4gcJGw-f9aTZdHjAOcTq3xyZ0sawB9e-sIHQ1p_0k0xUvSPc-0DEq1omrt01LMnf0H1CKhhJJ5Ccg_mfcSGlGlZ1JqBNlDGUQEpwMZFoPnZJ_TcRgiySEXy70xUH6Qci-FX4EsJUrk7neqokAOS6f5ySrvOSMPLgp159TGN-a7L_8-NIOSDbGu8d2f5uxwfoj2L1e"/>
+</div>
+<div class="flex flex-col">
+<span class="font-code-sm text-on-surface font-bold">ByteMe</span>
+<span class="font-label-caps text-tertiary-fixed-dim text-[10px] animate-pulse">THINKING...</span>
+</div>
+</div>
+<button class="p-xs text-error hover:text-error-container transition-colors bg-error/10 rounded">
+<span class="material-symbols-outlined text-[18px]">mic_off</span>
+</button>
+</div>
+<!-- Player Item (Idle/Disconnected) -->
+<div class="flex items-center justify-between p-sm bg-surface border border-outline-variant rounded-DEFAULT opacity-50">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest border border-outline overflow-hidden">
+<div class="w-full h-full flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-code-sm text-on-surface font-bold">NullPointer</span>
+<span class="font-label-caps text-outline text-[10px]">IDLE</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline">wifi_off</span>
+</div>
+<!-- More placeholder items to show scrolling -->
+<div class="flex items-center justify-between p-sm bg-surface border border-outline-variant rounded-DEFAULT">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest border border-secondary-container overflow-hidden">
+<div class="w-full h-full bg-secondary-container/20"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-code-sm text-on-surface font-bold">CodeNinja</span>
+<span class="font-label-caps text-secondary-fixed-dim text-[10px]">SUBMITTED [4.1s]</span>
+</div>
+</div>
+<button class="p-xs text-on-surface-variant"><span class="material-symbols-outlined text-[18px]">mic</span></button>
+</div>
+</div>
+</div>
+<!-- Right Col: Terminal Log -->
+<div class="lg:col-span-3 flex flex-col gap-md">
+<h2 class="font-headline-md text-primary text-xl flex items-center gap-sm">
+<span class="material-symbols-outlined">terminal</span>
+                            SYS_LOG_
+                        </h2>
+<div class="flex-1 bg-[#0a0a0c] border-2 border-[#13ff43] rounded-lg block-shadow-secondary p-md font-code-sm text-[#13ff43] overflow-y-auto space-y-xs shadow-[inset_0_0_20px_rgba(19,255,67,0.1)]">
+<div class="opacity-50">[14:02:11] INITIALIZING ROOM 8F9-A2X...</div>
+<div class="opacity-50">[14:02:12] HOST AUTHENTICATED.</div>
+<div class="opacity-50">[14:05:00] WAITING FOR PLAYERS...</div>
+<div class="text-tertiary-fixed-dim">[14:05:33] DevSlayer99 CONNECTED.</div>
+<div class="text-tertiary-fixed-dim">[14:05:45] ByteMe CONNECTED.</div>
+<div class="opacity-50">[14:08:00] DRILL INITIATED.</div>
+<div class="text-primary-fixed-dim">[14:08:05] Q1 LOADED.</div>
+<div class="text-secondary-fixed-dim">[14:08:12] ByteMe SCORED +100XP.</div>
+<div class="opacity-50">...</div>
+<div class="text-primary-fixed-dim">[14:15:22] Q4 LOADED. JAVASCRIPT CATEGORY.</div>
+<div class="text-secondary-fixed-dim">[14:15:24] DevSlayer99 SUBMITTED.</div>
+<div class="text-error">[14:15:28] WARNING: NullPointer LATENCY HIGH.</div>
+<div class="flex items-center gap-xs mt-sm">
+<span class="animate-pulse">&gt;</span>
+<span class="w-2 h-4 bg-[#13ff43] animate-pulse inline-block"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-md pb-sm bg-surface-container-highest dark:bg-surface-container-highest text-secondary-fixed-dim dark:text-secondary-fixed-dim font-label-caps text-label-caps rounded-t-lg border-t-4 border-primary-container shadow-[0px_-4px_0px_0px_rgba(0,0,0,1)] z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-sm hover:bg-primary-container hover:text-on-primary-container active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-sm hover:bg-primary-container hover:text-on-primary-container active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span>Manual</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-sm hover:bg-primary-container hover:text-on-primary-container active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">upload_file</span>
+<span>Bulk</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-tertiary-container text-on-tertiary-container p-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-primary-container hover:text-on-primary-container active:translate-y-1 transition-all" href="#">
+<span class="material-symbols-outlined">mic</span>
+<span>Voice</span>
+</a>
+</nav>
+</body></html>

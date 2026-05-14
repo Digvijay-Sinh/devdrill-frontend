@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevDrill - Quiz Configuration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#00e639",
+                      "on-surface": "#eeddee",
+                      "on-secondary-fixed": "#002203",
+                      "primary-fixed": "#f8d8ff",
+                      "on-secondary-container": "#007117",
+                      "on-background": "#eeddee",
+                      "inverse-on-surface": "#372d3a",
+                      "on-tertiary-fixed-variant": "#8e004a",
+                      "primary-container": "#bd00ff",
+                      "surface-container-low": "#211824",
+                      "on-primary-fixed": "#320047",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#514255",
+                      "on-tertiary-fixed": "#3e001d",
+                      "on-primary-fixed-variant": "#74009f",
+                      "surface-tint": "#ecb2ff",
+                      "surface": "#19101c",
+                      "error-container": "#93000a",
+                      "on-tertiary-container": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb1c8",
+                      "surface-container-highest": "#3c313e",
+                      "surface-variant": "#3c313e",
+                      "secondary-fixed": "#72ff70",
+                      "on-primary": "#520071",
+                      "on-tertiary": "#650033",
+                      "inverse-surface": "#eeddee",
+                      "on-primary-container": "#ffffff",
+                      "inverse-primary": "#9900cf",
+                      "primary-fixed-dim": "#ecb2ff",
+                      "surface-bright": "#403643",
+                      "on-secondary-fixed-variant": "#00530e",
+                      "on-secondary": "#003907",
+                      "on-error": "#690005",
+                      "surface-container": "#261c28",
+                      "on-surface-variant": "#d4c0d7",
+                      "secondary-container": "#13ff43",
+                      "surface-dim": "#19101c",
+                      "tertiary": "#ffb1c8",
+                      "primary": "#ecb2ff",
+                      "outline": "#9d8ba0",
+                      "background": "#19101c",
+                      "tertiary-container": "#e5007b",
+                      "surface-container-high": "#302733",
+                      "tertiary-fixed": "#ffd9e2",
+                      "error": "#ffb4ab",
+                      "surface-container-lowest": "#130b16",
+                      "secondary": "#ecffe3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "xl": "48px",
+                      "md": "16px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "container-max": "1200px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Anybody"],
+                      "stat-value": ["Space Mono"],
+                      "label-caps": ["Space Mono"],
+                      "headline-md": ["Anybody"],
+                      "display-hero": ["Anybody"],
+                      "body-md": ["JetBrains Mono"],
+                      "code-sm": ["JetBrains Mono"],
+                      "body-lg": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                      "stat-value": ["20px", { "lineHeight": "1", "fontWeight": "700" }],
+                      "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                      "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                      "display-hero": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                      "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                      "code-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                      "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        /* Essential base styles for the pixel aesthetic */
+        body { background-color: #19101c; color: #eeddee; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+        
+        /* Hide scrollbar for nav */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #261c28; }
+        ::-webkit-scrollbar-thumb { background: #514255; border: 1px solid #19101c; }
+        ::-webkit-scrollbar-thumb:hover { background: #9d8ba0; }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col font-body-md text-body-md text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary font-headline-md text-headline-md w-full top-0 sticky z-50 border-b-4 border-surface-container-highest shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<div class="flex justify-between items-center px-lg py-md w-full max-w-container-max mx-auto">
+<!-- Brand -->
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-display-hero fill">terminal</span>
+<span class="font-display-hero text-headline-lg text-primary-container dark:text-primary-container uppercase italic">DevDrill</span>
+</div>
+<!-- Navigation Links (Hidden on Mobile) -->
+<nav class="hidden md:flex gap-lg">
+<a class="text-secondary-fixed-dim font-bold border-b-2 border-secondary-fixed-dim py-sm px-md hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" href="#">Configs</a>
+<a class="text-on-surface-variant font-medium py-sm px-md hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" href="#">Questions</a>
+<a class="text-on-surface-variant font-medium py-sm px-md hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" href="#">Huddle</a>
+<a class="text-on-surface-variant font-medium py-sm px-md hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all" href="#">Stats</a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"><span class="material-symbols-outlined">account_circle</span></button>
+<button class="text-on-surface-variant hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-on-surface-variant hover:text-secondary-fixed hover:translate-y-[-2px] transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"><span class="material-symbols-outlined">settings</span></button>
+</div>
+</div>
+</header>
+<div class="flex flex-1 w-full max-w-[1440px] mx-auto overflow-hidden">
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden md:flex bg-surface-container-low dark:bg-surface-container-low text-tertiary dark:text-tertiary font-body-md text-body-md h-[calc(100vh-80px)] w-64 sticky top-[80px] border-r-4 border-surface-container-highest shadow-[8px_0px_0px_0px_rgba(0,0,0,0.5)] z-40">
+<div class="flex flex-col h-full p-md space-y-md w-full">
+<!-- Header -->
+<div class="flex items-center gap-md p-sm mb-lg border-b-2 border-surface-container-highest pb-md">
+<div class="w-12 h-12 bg-surface-container-highest border-2 border-outline-variant shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] overflow-hidden flex items-center justify-center">
+<img alt="Host Pixel Sprite" class="object-cover w-full h-full pixelated" data-alt="A pixel-art style portrait of a futuristic hacker character wearing a neon visor and a dark trench coat. The background is a stark, terminal-green grid against a deep black void. The lighting is harsh and synthetic, evoking a retro-vaporwave aesthetic. The character exudes a confident, elite archmage aura." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtSUqfP0EEaQUBzbvZwKK5EGz7Icv-5o9yGQH7aMuDd3YsCBPRyI125Q-BzeY0m_6vWiie09lSmBqmvTG6kfAOA3tbz8-DAf0mvbvFSQx0D8asHTAvULn7-86Nx9Fq5JlSOHGjo3Y13QWVeKaPvUYa-e6wtiZjtbnPVB74b-xVk7srKmTkNnnUxAXZwnpsH3wgymx742sJbTkkkq20IkeN3FdEAbSKwyTfmOlzMGRKkR-13tEJziZ8sS9n7TzsW4lYOOjh6C62oWwz" style="image-rendering: pixelated;"/>
+</div>
+<div>
+<div class="font-headline-md text-primary text-sm font-bold">ROOT_USER</div>
+<div class="text-xs text-on-surface-variant font-code-sm">Level 99 Archmage</div>
+</div>
+</div>
+<!-- Tabs -->
+<nav class="flex flex-col gap-sm flex-1">
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md bg-secondary-container text-on-secondary-container border-2 border-on-secondary-fixed-variant shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined fill">tune</span>
+<span class="font-bold">Quiz Config</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Library</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Live Session</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all active:scale-95 duration-75" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span>Host Settings</span>
+</a>
+</nav>
+<!-- CTA -->
+<button class="w-full mt-auto mb-md bg-tertiary-container text-on-tertiary-container font-stat-value text-stat-value py-md border-2 border-surface-container-highest shadow-[4px_4px_0px_0px_#000] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all uppercase">
+                    START_DRILL
+                </button>
+<!-- Footer Tabs -->
+<div class="flex flex-col gap-sm border-t-2 border-surface-container-highest pt-md">
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-primary transition-all text-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span>Docs</span>
+</a>
+<a class="flex items-center gap-md p-sm text-on-surface-variant hover:bg-surface-container-highest hover:translate-x-1 hover:text-error transition-all text-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-md md:p-xl pb-[100px] md:pb-xl overflow-y-auto">
+<div class="max-w-4xl mx-auto w-full">
+<!-- Header Banner -->
+<div class="w-full h-32 md:h-48 mb-xl border-4 border-surface-container-highest shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden bg-surface-container flex items-end p-lg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAtz0MH5R1TSN1_jB5oQvN7N0DhpNBhImeYYnhLwzqTsdFKYw-MlO-_ATKFY4vC0Ka590ZQrp0f6xWb_mV1j3KgDo43XDXWSGl-gPNINsTXd_c2p-BRXjkeuMAbJDqwbhjQVNdqDVywhWIdyvPDv-m1kppPLLFL3uotr1coAW4e2BoBS4DBW3dIQt9B_S5XRvuwUFgXFHHhFd4G7Tkukf8mCyztEhoj0mU02WjW3qGhMxXNd7NqdZ8djEpqhodfAbpRM_TW7aJZ9a3o'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-background/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="relative z-10">
+<h1 class="font-display-hero text-display-hero text-primary mb-xs drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">INIT_ROOM</h1>
+<p class="font-code-sm text-code-sm text-secondary-fixed opacity-90 drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">&gt; configure operational parameters</p>
+</div>
+</div>
+<!-- Bento Grid Configuration Form -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Dropzone: Room Picture (Span 4) -->
+<div class="md:col-span-4 bg-surface-container border-2 border-outline-variant p-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col group hover:border-primary transition-colors cursor-pointer relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0iIzM3MmQzYSIvPjwvc3ZnPg==')] opacity-50"></div>
+<div class="relative z-10 flex flex-col items-center justify-center h-full min-h-[200px] text-center gap-md">
+<span class="material-symbols-outlined text-[48px] text-primary group-hover:text-primary-fixed transition-colors drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]">upload_file</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Room Sprite</h3>
+<p class="font-code-sm text-code-sm text-outline">&gt; DROP_FILE_HERE.png</p>
+</div>
+<div class="mt-auto pt-sm border-t border-outline-variant w-full font-label-caps text-label-caps text-on-surface-variant">MAX 2MB • 64x64px</div>
+</div>
+</div>
+<!-- Primary Inputs (Span 8) -->
+<div class="md:col-span-8 flex flex-col gap-lg">
+<!-- Text Input: Room Title -->
+<div class="bg-surface border-2 border-surface-container-highest p-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-primary">ROOM TITLE_</label>
+<div class="bg-surface-container-lowest border-2 border-outline-variant p-sm flex items-center group focus-within:border-secondary-fixed focus-within:shadow-[4px_4px_0px_0px_#72ff70] transition-all">
+<span class="text-secondary-fixed-dim font-code-sm mr-sm">&gt;</span>
+<input class="bg-transparent border-none outline-none w-full text-secondary-fixed font-code-sm text-code-sm placeholder-outline-variant focus:ring-0 p-0" placeholder="ENTER_SESSION_ID" type="text" value="BOSS_BATTLE_01"/>
+<span class="bg-secondary-fixed-dim w-[8px] h-[16px] inline-block ml-xs opacity-50"></span>
+</div>
+</div>
+<!-- Numeric Input: Number of Questions -->
+<div class="bg-surface border-2 border-surface-container-highest p-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-primary">QUESTION COUNT_</label>
+<div class="bg-surface-container-lowest border-2 border-outline-variant p-sm flex items-center group focus-within:border-tertiary focus-within:shadow-[4px_4px_0px_0px_#ffb1c8] transition-all w-full md:w-1/2">
+<span class="text-tertiary-fixed-dim font-code-sm mr-sm">&gt;</span>
+<input class="bg-transparent border-none outline-none w-full text-tertiary font-code-sm text-code-sm placeholder-outline-variant focus:ring-0 p-0" max="50" min="1" placeholder="0" type="number" value="10"/>
+<span class="bg-tertiary-fixed-dim w-[8px] h-[16px] inline-block ml-xs opacity-50"></span>
+</div>
+</div>
+</div>
+<!-- Toggles Grid (Span 12) -->
+<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-lg mt-md">
+<!-- Toggle: Post-Question Voice Call -->
+<div class="bg-surface-container-low border-2 border-surface-container-highest p-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex flex-col gap-xs pr-md">
+<span class="font-headline-md text-[18px] text-on-surface font-bold flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">mic</span>
+                                    Huddle Mode
+                                </span>
+<span class="font-body-md text-sm text-on-surface-variant">Enable post-question voice discussion phase.</span>
+</div>
+<label class="flex items-center cursor-pointer shrink-0">
+<div class="relative">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest border-2 border-outline-variant peer-checked:bg-secondary-container peer-checked:border-secondary-fixed shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors"></div>
+<div class="absolute left-1 top-1 w-4 h-4 bg-outline peer-checked:bg-on-secondary-container peer-checked:translate-x-6 transition-transform block shadow-[1px_1px_0px_0px_rgba(0,0,0,0.5)]"></div>
+</div>
+</label>
+</div>
+<!-- Toggle: Recurring -->
+<div class="bg-surface-container-low border-2 border-surface-container-highest p-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex flex-col gap-xs pr-md">
+<span class="font-headline-md text-[18px] text-on-surface font-bold flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">event_repeat</span>
+                                    Recurring Schedule
+                                </span>
+<span class="font-body-md text-sm text-on-surface-variant">Set as a weekly auto-generated instance.</span>
+</div>
+<label class="flex items-center cursor-pointer shrink-0">
+<div class="relative">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-surface-container-highest border-2 border-outline-variant peer-checked:bg-secondary-container peer-checked:border-secondary-fixed shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors"></div>
+<div class="absolute left-1 top-1 w-4 h-4 bg-outline peer-checked:bg-on-secondary-container peer-checked:translate-x-6 transition-transform block shadow-[1px_1px_0px_0px_rgba(0,0,0,0.5)]"></div>
+</div>
+</label>
+</div>
+</div>
+<!-- Action Area -->
+<div class="md:col-span-12 flex justify-end mt-xl pt-lg border-t-4 border-surface-container-highest border-dashed">
+<button class="bg-gradient-to-r from-tertiary-container to-primary-container text-on-tertiary-container font-headline-md text-headline-md px-xl py-md border-2 border-surface-bright shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all flex items-center gap-sm group">
+                            NEXT_STEP
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-md pb-sm bg-surface-container-highest dark:bg-surface-container-highest text-secondary-fixed-dim dark:text-secondary-fixed-dim font-label-caps text-label-caps z-50 rounded-t-lg border-t-4 border-primary-container shadow-[0px_-4px_0px_0px_rgba(0,0,0,1)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-sm hover:bg-primary-container hover:text-on-primary-container active:translate-y-1 transition-all w-full" href="#">
+<span class="material-symbols-outlined mb-xs">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-tertiary-container text-on-tertiary-container p-sm rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-primary-container hover:text-on-primary-container active:translate-y-1 transition-all w-full mt-[-10px] border-2 border-surface-bright" href="#">
+<span class="material-symbols-outlined mb-xs fill">edit_note</span>
+<span>Manual</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-sm hover:bg-primary-container hover:text-on-primary-container active:translate-y-1 transition-all w-full" href="#">
+<span class="material-symbols-outlined mb-xs">upload_file</span>
+<span>Bulk</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-sm hover:bg-primary-container hover:text-on-primary-container active:translate-y-1 transition-all w-full" href="#">
+<span class="material-symbols-outlined mb-xs">mic</span>
+<span>Voice</span>
+</a>
+</nav>
+</body></html>

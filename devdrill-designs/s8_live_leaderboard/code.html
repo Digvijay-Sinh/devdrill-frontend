@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevDrill - Leaderboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#007117",
+                    "secondary": "#ecffe3",
+                    "surface-tint": "#ecb2ff",
+                    "on-error": "#690005",
+                    "surface-container-lowest": "#130b16",
+                    "surface-container-high": "#302733",
+                    "tertiary-fixed-dim": "#ffb1c8",
+                    "primary-fixed-dim": "#ecb2ff",
+                    "primary-container": "#bd00ff",
+                    "on-tertiary": "#650033",
+                    "on-background": "#eeddee",
+                    "on-tertiary-fixed-variant": "#8e004a",
+                    "inverse-surface": "#eeddee",
+                    "surface-dim": "#19101c",
+                    "on-secondary-fixed": "#002203",
+                    "tertiary-container": "#e5007b",
+                    "on-surface-variant": "#d4c0d7",
+                    "outline": "#9d8ba0",
+                    "on-primary-container": "#ffffff",
+                    "secondary-container": "#13ff43",
+                    "outline-variant": "#514255",
+                    "surface-bright": "#403643",
+                    "inverse-primary": "#9900cf",
+                    "on-primary": "#520071",
+                    "on-primary-fixed-variant": "#74009f",
+                    "error-container": "#93000a",
+                    "tertiary": "#ffb1c8",
+                    "secondary-fixed": "#72ff70",
+                    "surface-variant": "#3c313e",
+                    "primary": "#ecb2ff",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#eeddee",
+                    "primary-fixed": "#f8d8ff",
+                    "on-primary-fixed": "#320047",
+                    "surface": "#19101c",
+                    "background": "#19101c",
+                    "surface-container-low": "#211824",
+                    "tertiary-fixed": "#ffd9e2",
+                    "surface-container-highest": "#3c313e",
+                    "inverse-on-surface": "#372d3a",
+                    "on-secondary-fixed-variant": "#00530e",
+                    "on-secondary": "#003907",
+                    "on-tertiary-container": "#ffffff",
+                    "secondary-fixed-dim": "#00e639",
+                    "surface-container": "#261c28",
+                    "on-tertiary-fixed": "#3e001d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "unit": "4px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "xl": "48px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Anybody"
+                    ],
+                    "body-md": [
+                            "JetBrains Mono"
+                    ],
+                    "display-hero": [
+                            "Anybody"
+                    ],
+                    "body-lg": [
+                            "JetBrains Mono"
+                    ],
+                    "code-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-lg": [
+                            "Anybody"
+                    ],
+                    "stat-value": [
+                            "Space Mono"
+                    ],
+                    "label-caps": [
+                            "Space Mono"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-hero": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "900"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "code-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "stat-value": [
+                            "20px",
+                            {
+                                    "lineHeight": "1",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Background Forest Theme -->
+<div class="fixed inset-0 z-0 pointer-events-none opacity-20" data-alt="A dark, moody pixel-art style forest background. Deep violet and muted green tones dominate the scene. Tall, blocky trees create a sense of depth and mystery. The overall aesthetic is retro 8-bit adventure game, setting a dramatic tone for a boss battle or high-stakes challenge." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdnTWyxXJxMf7cGJ_y5yHXnSOf4LW1e92qB-Zyq0HxDETrnjPuQcVGhWI0XgRprj18fyJ8Dz7qBu07pvEkoTefahsLGj87CYFfSR9GmFS8k73LoshLC6AxupX_-6uGVoPKx52lYmtPRg8WeEkdBVaqy9siYxrO7ZQ70yFEtWGOCiHV-fcC1ycsu3u3BHMp-ir1wfjqQnBtBtghrOrkId99koe0y8THcgm_AviuPabIhFDs-hRXHzKCEzFmAiaap6lfT-Mi12kMvpRI'); background-size: cover; background-position: center; filter: contrast(1.2) sepia(1) hue-rotate(240deg) saturate(2) grayscale(0.5); image-rendering: pixelated;"></div>
+<!-- TopAppBar (Web Only) -->
+<header class="hidden md:flex bg-surface dark:bg-surface border-b-4 border-primary shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sticky top-0 z-40 w-full">
+<div class="flex justify-between items-center w-full px-gutter py-md max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary italic tracking-tighter">
+                DevDrill
+            </div>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant font-medium hover:text-primary hover:translate-y-[-2px] transition-transform font-label-caps text-label-caps" href="#">Dashboard</a>
+<a class="text-on-surface-variant font-medium hover:text-primary hover:translate-y-[-2px] transition-transform font-label-caps text-label-caps" href="#">History</a>
+<a class="text-secondary-fixed font-bold border-b-2 border-secondary-fixed hover:text-primary hover:translate-y-[-2px] transition-transform font-label-caps text-label-caps translate-y-[2px] translate-x-[2px] transition-all duration-75" href="#">Leaderboard</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-md py-sm border-2 border-primary-fixed block shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all">New Quiz</button>
+<img alt="Pixel Art User Avatar" class="w-10 h-10 border-2 border-tertiary-fixed object-cover" data-alt="A close-up portrait of a user with a heavy pixel-art filter applied. The avatar has a retro, 8-bit video game aesthetic with distinct, blocky pixels. The color palette is vibrant and slightly saturated, fitting a retro-vaporwave theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_1gAyvP2BUO36b18FtQNM7bP5iH5Q9q78C5LWG5UmJCMUzIiE-axRoLfpBzX2dx5kae0NLX0BORhkAEjt2AhK9TZBuMoNUoLLWhfdq1yCOviqK_DK268lMRrhGkCS2jMl9nxwDBgY5Jcdf2jNagAnG_bnph4grMVlRSZm5EQnQlPPCPvYMOKKZaB6Vl5z8koT_naFS58S-WtooWRe3-FkgjTibuuziWgqstNRt7j-5Htt8A9w-z-e3BLFnDhZmpfsTkShsxelFvEP" style="image-rendering: pixelated;"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow relative z-10 w-full max-w-container-max mx-auto px-md md:px-gutter py-xl pb-[100px] md:pb-xl flex flex-col gap-xl">
+<!-- Round Summary Hero -->
+<section class="flex flex-col items-center text-center gap-md">
+<h1 class="font-display-hero text-display-hero text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] uppercase tracking-tight">Round Complete!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl bg-surface-container-high p-sm border border-outline-variant shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                The dust settles on Question 5. The "Null Pointer" challenge decimated the ranks. Here is where the factions stand.
+            </p>
+</section>
+<!-- Leaderboard Bento Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-md md:gap-lg">
+<!-- Top Team (The Boss) -->
+<div class="lg:col-span-12 bg-surface-container border border-primary-fixed p-md md:p-lg shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-sm bg-primary-container text-on-primary-container font-stat-value text-stat-value border-b border-l border-primary-fixed shadow-[-4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    #1
+                </div>
+<div class="flex flex-col md:flex-row items-center gap-lg">
+<!-- Avatar / Sprite -->
+<div class="relative">
+<div class="w-24 h-24 bg-surface-dim border-2 border-secondary-fixed shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center p-2">
+<img alt="Team Alpha Avatar" class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all" data-alt="A stylized, blocky 8-bit avatar representing a team mascot. It resembles a digital warrior or wizard with glowing green accents. The avatar is set against a dark, contrasting background, fitting the retro-brutalist aesthetic of the UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlDAQEfwI7OpNRuoK5agnoU9cpUbQHl-f65JT208WULaC8OOXDCUOpAH144zZw2x_gIq4SoE0vMzlBYQIYuipePGFe7EP9cWl2BnL8msoxMkbu6VJ-QN31OcFlu8zP7VfuIi3lcXsVVoHwG-X-XiOD8A-jyyfgQ986iZmGTwGIL1lUOm0Y22EqxxiysWhI427c1yuXSbhAKRuG_RPVVth8Lwmjs8dEaU23m3KR7Ss-9U16bUVODZ27s23M2lfzw0brcl2CUjWzOCFF" style="image-rendering: pixelated;"/>
+</div>
+<!-- Medal Sprite -->
+<div class="absolute -bottom-4 -right-4 w-12 h-12 bg-surface-bright border-2 border-[#FFD700] flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rotate-12">
+<span class="material-symbols-outlined text-[#FFD700] text-3xl drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</div>
+<!-- Details & Score -->
+<div class="flex-grow w-full flex flex-col gap-sm">
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary m-0 leading-none">Code Breakers</h2>
+<span class="font-code-sm text-code-sm text-secondary-fixed">&gt; faction_status: UNSTOPPABLE</span>
+</div>
+<div class="flex gap-2 text-2xl">
+<span>🔥</span>
+<span>🚀</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-lowest h-6 border border-outline-variant shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.5)] mt-sm relative">
+<div class="h-full bg-gradient-to-r from-secondary-fixed to-secondary-container border-r-2 border-black w-[85%] relative overflow-hidden group-hover:after:content-[''] group-hover:after:absolute group-hover:after:inset-0 group-hover:after:bg-white group-hover:after:opacity-20 group-hover:after:animate-pulse">
+<!-- Striped pattern for retro feel -->
+<div class="absolute inset-0 opacity-30" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.5) 10px, rgba(0,0,0,0.5) 20px);"></div>
+</div>
+<span class="absolute right-2 top-1/2 -translate-y-1/2 font-stat-value text-stat-value text-on-surface z-10 drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">8,500 XP</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Second Place -->
+<div class="lg:col-span-6 bg-surface-container border border-outline-variant p-md shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:border-tertiary-fixed transition-colors">
+<div class="flex items-center gap-md mb-md">
+<div class="font-stat-value text-stat-value text-tertiary-fixed border-b-2 border-tertiary-fixed pb-1">#2</div>
+<div class="w-12 h-12 bg-surface-dim border border-[#C0C0C0] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#C0C0C0]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Syntax Squad</h3>
+</div>
+<div class="flex justify-between text-sm mb-xs">
+<span class="font-code-sm text-code-sm text-on-surface-variant">&gt; current_load</span>
+<span class="font-stat-value text-stat-value text-tertiary-fixed">7,200 XP</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-4 border border-outline-variant shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.5)]">
+<div class="h-full bg-tertiary w-[72%] border-r border-black relative">
+<div class="absolute inset-0 opacity-30" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.5) 5px, rgba(0,0,0,0.5) 10px);"></div>
+</div>
+</div>
+<div class="mt-sm flex justify-end gap-1 text-lg">
+<span>💪</span>
+</div>
+</div>
+<!-- Third Place -->
+<div class="lg:col-span-6 bg-surface-container border border-outline-variant p-md shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:border-[#CD7F32] transition-colors">
+<div class="flex items-center gap-md mb-md">
+<div class="font-stat-value text-stat-value text-[#CD7F32] border-b-2 border-[#CD7F32] pb-1">#3</div>
+<div class="w-12 h-12 bg-surface-dim border border-[#CD7F32] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#CD7F32]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Logic Lords</h3>
+</div>
+<div class="flex justify-between text-sm mb-xs">
+<span class="font-code-sm text-code-sm text-on-surface-variant">&gt; current_load</span>
+<span class="font-stat-value text-stat-value text-[#CD7F32]">6,800 XP</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-4 border border-outline-variant shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.5)]">
+<div class="h-full bg-[#CD7F32] w-[68%] border-r border-black relative">
+<div class="absolute inset-0 opacity-30" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,0,0,0.5) 5px, rgba(0,0,0,0.5) 10px);"></div>
+</div>
+</div>
+<div class="mt-sm flex justify-end gap-1 text-lg">
+<span>😅</span>
+</div>
+</div>
+<!-- Lower Ranks List -->
+<div class="lg:col-span-12 bg-surface-container border border-outline-variant p-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-md">&gt; remaining_entities</h4>
+<div class="flex flex-col gap-sm">
+<!-- Rank 4 -->
+<div class="flex items-center gap-md bg-surface-container-low p-sm border border-outline-variant/50">
+<div class="font-stat-value text-stat-value text-on-surface-variant w-8">#4</div>
+<div class="flex-grow font-headline-md text-headline-md text-on-surface text-lg">Bit Bandits</div>
+<div class="w-1/3 max-w-[200px] hidden sm:block bg-surface-container-lowest h-3 border border-outline-variant">
+<div class="h-full bg-surface-variant w-[55%]"></div>
+</div>
+<div class="font-stat-value text-stat-value text-on-surface">5,500 XP</div>
+</div>
+<!-- Rank 5 -->
+<div class="flex items-center gap-md bg-surface-container-low p-sm border border-outline-variant/50">
+<div class="font-stat-value text-stat-value text-on-surface-variant w-8">#5</div>
+<div class="flex-grow font-headline-md text-headline-md text-on-surface text-lg">Git Gud</div>
+<div class="w-1/3 max-w-[200px] hidden sm:block bg-surface-container-lowest h-3 border border-outline-variant">
+<div class="h-full bg-surface-variant w-[40%]"></div>
+</div>
+<div class="font-stat-value text-stat-value text-on-surface">4,000 XP</div>
+<div class="text-xl">💀</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar (Gradient CTA) -->
+<div class="fixed bottom-[72px] md:bottom-0 left-0 w-full z-30 p-md bg-gradient-to-t from-surface to-transparent pointer-events-none flex justify-center">
+<button class="pointer-events-auto bg-gradient-to-r from-tertiary-container to-primary-container text-on-primary-container font-headline-md text-headline-md px-xl py-md border-2 border-primary-fixed shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] transition-all flex items-center gap-sm group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">fast_forward</span>
+            Next Round
+        </button>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container-high dark:bg-surface-container-high border-t-4 border-outline-variant shadow-[0px_-4px_0px_0px_rgba(0,0,0,1)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 docked full-width bottom-0 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">extension</span>
+<span class="font-label-caps text-label-caps">Quizzes</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-surface-bright transition-colors scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-label-caps text-label-caps">Rank</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-bright transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+</body></html>
