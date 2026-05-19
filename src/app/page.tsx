@@ -1,5 +1,9 @@
 import { JoinPage } from "@/components/01-join-page/join-page";
 
 export default function Home() {
-  return <JoinPage />;
+  return (
+    <main>
+      <JoinPage />
+    </main>
+  );
 }

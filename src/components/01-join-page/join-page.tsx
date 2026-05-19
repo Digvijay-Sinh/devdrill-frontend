@@ -1,6 +1,8 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Text } from "@/components/ui/typography";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export function JoinPage() {
   return (
@@ -66,12 +68,12 @@ export function JoinPage() {
             Create lobbies, track leaderboards, and manage your custom quizzes.
           </Text>
           
-          <Button variant="outline" className="w-full">
+          <Link href="/login" className={cn(buttonVariants({ variant: "outline" }), "w-full")}>
             <span className="material-symbols-outlined">
               login
             </span>
             HOST SIGN IN
-          </Button>
+          </Link>
         </Card>
       </div>
     </main>
