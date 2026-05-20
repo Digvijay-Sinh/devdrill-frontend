@@ -28,14 +28,14 @@ export default function LoginPage() {
         </div>
       </div>
       
-      <div className="w-full lg:w-7/12 p-lg md:p-xl bg-surface flex flex-col justify-center">
+      <div className="w-full lg:w-7/12 p-lg md:p-xl bg-surface flex flex-col justify-center items-stretch">
         <div className="lg:hidden flex items-center gap-sm mb-xl">
           <span className="material-symbols-outlined text-headline-md text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>terminal</span>
           <Text type="display-hero" className="text-[2rem] text-primary italic uppercase tracking-tighter">DevDrill</Text>
         </div>
         
-        <div className="w-full max-w-md mx-auto">
-          <div className="flex border-4 border-outline-variant bg-surface-container-low mb-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div className="w-full max-w-[448px] mx-auto">
+          <div className="w-full flex border-4 border-outline-variant bg-surface-container-low mb-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <button 
               type="button"
               onClick={() => setActiveTab("signin")}
