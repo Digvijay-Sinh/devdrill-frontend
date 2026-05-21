@@ -2,23 +2,10 @@
 
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { signInSchema, type SignInFormValues } from "./validator";
 import { FormField } from "@/components/ui/form-field";
 import { useRouter } from "next/navigation";
 import { Text } from "@/components/ui/typography";
-
-export const signInSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z
-    .string()
-    .min(8, "Password must be at least 8 characters")
-    .regex(
-      /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]*$/,
-      "Password must be alphanumeric (contain at least one letter and one number)"
-    ),
-});
-
-export type SignInFormValues = z.infer<typeof signInSchema>;
 
 export function SignInForm() {
   const router = useRouter();

@@ -2,15 +2,9 @@
 
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { signUpSchema, type SignUpFormValues } from "./validator";
 import { FormField } from "@/components/ui/form-field";
 import { Text } from "@/components/ui/typography";
-
-export const signUpSchema = z.object({
-  username: z.string().min(3, "Username must be at least 3 characters"),
-});
-
-export type SignUpFormValues = z.infer<typeof signUpSchema>;
 
 interface SignUpFormProps {
   onSuccess?: () => void;
